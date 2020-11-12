@@ -1,16 +1,17 @@
 import discord
 import asyncio
-from discord import Member
 
-import settings
-import help
+#import function
+from functions import help
+
+#import settings
+import config
+from config import PREFIX
 
 client = discord.Client()
 
-clientID = settings.ID
-user = client.get_user(clientID)
+user = client.get_user(config.ID)
 
-p = settings.PREFIX
 helplist = help.list
 
 #On ready console log
@@ -18,7 +19,7 @@ helplist = help.list
 async def on_ready():
     print('{0.user} has logged in Successesfully!\r\n'.format(client)
             + '\r\n\r\n'
-            + '{0.user} Version '.format(client) + (settings.VERSION) + '\r\n'
+            + '{0.user} Version '.format(client) + (config.VERSION) + '\r\n'
             + 'Discord Py - Rewrite version ' + discord.__version__
             + '\r\n')
 
@@ -29,11 +30,11 @@ async def on_ready():
 #Test client active/presence functions on server
 async def status_task():
     while True:
-        await client.change_presence(activity=discord.Game(settings.STATUS1), status=discord.Status.online)
+        await client.change_presence(activity=discord.Game(config.STATUS1), status=discord.Status.online)
         await asyncio.sleep(10)
-        await client.change_presence(activity=discord.Game(settings.STATUS2), status=discord.Status.online)
+        await client.change_presence(activity=discord.Game(config.STATUS2), status=discord.Status.online)
         await asyncio.sleep(10)
-        await client.change_presence(activity=discord.Game(settings.STATUS3), status=discord.Status.online)
+        await client.change_presence(activity=discord.Game(config.STATUS3), status=discord.Status.online)
         await asyncio.sleep(10)
 
 def is_not_pinned(mess):
@@ -45,17 +46,17 @@ async def  on_message(message):
         return
 
 #Help command
-    if p + 'help' in message.content:
-        embed = discord.Embed(title='**How to use {}**'.format(settings.NAME),
+    if PREFIX + 'help' in message.content:
+        embed = discord.Embed(title='**How to use {}**'.format(config.BOTNAME),
                     description= helplist,
                     color = 0x3A00FF)
+
         await message.author.send(embed=embed)
-        await message.channel.purge(limit=1, check = is_not_pinned)
 
 
 #Clear command
     #clear all function
-    if message.content.startswith(p + 'clear' + ' all'):
+    if message.content.startswith(PREFIX + 'clear' + ' all'):
         #check for permissions
         if message.author.permissions_in(message.channel).manage_messages:
             V_all = 999999999999
@@ -63,11 +64,11 @@ async def  on_message(message):
             embed = discord.Embed(title='**Clearing Chat**',
                         description = '`' + message.author.name + ' has deleted all messages!`',
                         color = 0x3A00FF)
+
             await message.channel.send(embed=embed)
 
-
     #clear [lines]
-    if message.content.startswith(p + 'clear'):
+    if message.content.startswith(PREFIX + 'clear'):
         #check for permissions
         if message.author.permissions_in(message.channel).manage_messages:
             args = message.content.split(' ')
@@ -78,8 +79,8 @@ async def  on_message(message):
                     embed = discord.Embed(title='**Clearing Chat**',
                         description = '`' + message.author.name + ' has deleted {} messages!`'.format(len(deleted)-1),
                         color = 0x3A00FF)
-                    await message.channel.send(embed=embed)
 
+                    await message.channel.send(embed=embed)
 
             #missing lines
             if len(args) != 2:
@@ -87,8 +88,8 @@ async def  on_message(message):
                     description='Missing or incorrect argument.\r\n\r\n'
                         '`#clear [lines/args]`',
                     color = 0x3A00FF)
-                await message.author.send(embed=embed)
 
+                await message.author.send(embed=embed)
 
         #no permission
         else:
@@ -96,12 +97,11 @@ async def  on_message(message):
                 description='Missing permission - in (message.channel).manage_messages!\r\n'
                     '`Only moderators and above are allowed to use the command [#clear]`',
                 color=0x22a7f0)
+
             await message.author.send(embed=embed)
-            
 
 #Clear dms
-    if message.content.startswith(p + 'clear' + ' dms'):
-        deletelast
+    if message.content.startswith(PREFIX + 'clear' + ' dms'):
         print('Deleted dms')
 
-client.run(settings.TOKEN)
+client.run(config.TOKEN)
