@@ -56,7 +56,19 @@ async def  on_message(message):
         await message.author.send(embed=embed)
 
 
-#Clear command      
+#Clear command
+    #clear all function
+    if message.content.startswith(p + 'clear' + ' all'):
+        #check for permissions
+        if message.author.permissions_in(message.channel).manage_messages:
+            V_all = 999999999999
+            await message.channel.purge(limit=V_all, check=is_not_pinned)
+            embed = discord.Embed(title='**Clearing Chat**',
+                        description = '`' + message.author.name + ' has deleted all messages!`',
+                        color = 0x3A00FF)
+            await message.channel.send(embed=embed)
+            
+    #clear [lines]
     if message.content.startswith(p + 'clear'):
         #check for permissions
         if message.author.permissions_in(message.channel).manage_messages:
@@ -75,13 +87,13 @@ async def  on_message(message):
                     description='Missing or incorrect argument.\r\n\r\n'
                         '`#clear [lines/args]`',
                     color = 0x3A00FF)
-                await message.channel.send(embed=embed)
+                await message.author.send(embed=embed)
         #no permission
         else:
             embed = discord.Embed(title='**Incorrect Permission**',
                 description='Missing permission - in (message.channel).manage_messages!\r\n'
                     '`Only moderators and above are allowed to use the command [#clear]`',
                 color=0x22a7f0)
-            await message.channel.send(embed=embed)
+            await message.author.send(embed=embed)
 
 client.run(settings.TOKEN)
