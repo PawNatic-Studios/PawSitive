@@ -67,7 +67,7 @@ async def  on_message(message):
                         description = '`' + message.author.name + ' has deleted all messages!`',
                         color = 0x3A00FF)
             await message.channel.send(embed=embed)
-            
+
     #clear [lines]
     if message.content.startswith(p + 'clear'):
         #check for permissions
