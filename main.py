@@ -3,22 +3,24 @@ import asyncio
 from discord import Member
 
 import settings
+import help
 
 client = discord.Client()
-bn = settings.NAME
-p = settings.PREFIX
+
 clientID = settings.ID
-cmtln = '\r\n'
 user = client.get_user(clientID)
+
+p = settings.PREFIX
+helplist = help.list
 
 #On ready console log
 @client.event
 async def on_ready():
     print('{0.user} has logged in Successesfully!\r\n'.format(client)
-            + '{}\r\n'.format(cmtln)
+            + '\r\n\r\n'
             + '{0.user} Version '.format(client) + (settings.VERSION) + '\r\n'
             + 'Discord Py - Rewrite version ' + discord.__version__
-            + '{}'.format(cmtln))
+            + '\r\n')
 
     #Add Tasks to workloop
     client.loop.create_task(status_task())
@@ -44,16 +46,11 @@ async def  on_message(message):
 
 #Help command
     if p + 'help' in message.content:
-        embed = discord.Embed(title='**How to use {}**'.format(bn),
-                    description=
-                        '`' + p + 'help\r\n`'
-                        + 'Shows all available commands' + '\r\n\r\n'
-                        '`' + p + 'help [cmd]\r\n`'
-                        + 'Give more information to a specific command' + '\r\n\r\n'
-                        '`' + p + 'clear [lines/argument]\r\n`'
-                        + 'Clears current channel chat' + '\r\n\r\n',
+        embed = discord.Embed(title='**How to use {}**'.format(settings.NAME),
+                    description= helplist,
                     color = 0x3A00FF)
         await message.author.send(embed=embed)
+        await message.channel.purge(limit=1, check = is_not_pinned)
 
 
 #Clear command
@@ -68,6 +65,7 @@ async def  on_message(message):
                         color = 0x3A00FF)
             await message.channel.send(embed=embed)
 
+
     #clear [lines]
     if message.content.startswith(p + 'clear'):
         #check for permissions
@@ -81,6 +79,8 @@ async def  on_message(message):
                         description = '`' + message.author.name + ' has deleted {} messages!`'.format(len(deleted)-1),
                         color = 0x3A00FF)
                     await message.channel.send(embed=embed)
+
+
             #missing lines
             if len(args) != 2:
                 embed = discord.Embed(title='**Clear command**',
@@ -88,6 +88,8 @@ async def  on_message(message):
                         '`#clear [lines/args]`',
                     color = 0x3A00FF)
                 await message.author.send(embed=embed)
+
+
         #no permission
         else:
             embed = discord.Embed(title='**Incorrect Permission**',
@@ -95,5 +97,11 @@ async def  on_message(message):
                     '`Only moderators and above are allowed to use the command [#clear]`',
                 color=0x22a7f0)
             await message.author.send(embed=embed)
+            
+
+#Clear dms
+    if message.content.startswith(p + 'clear' + ' dms'):
+        deletelast
+        print('Deleted dms')
 
 client.run(settings.TOKEN)
