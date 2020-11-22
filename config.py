@@ -8,7 +8,7 @@
 ########################################################################
 
 VERSION = '0.0.001a'
-TOKEN = 'NzczNjQ5NDY5OTA3NjY0OTY3.X6MTNw.dAQJXhyEAB-4uxW-Qzvmd_OaTTQ'
+TOKEN = ''
 
 SYSPATH = r'F:\GitHub\PawSitive\extentions'
 LOGCHANNEL = '774266721321615370'
