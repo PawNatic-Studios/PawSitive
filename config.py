@@ -8,18 +8,17 @@
 ########################################################################
 
 VERSION = '0.0.001a'
-TOKEN = ''
+TOKEN = 'NzczNjQ5NDY5OTA3NjY0OTY3.X6MTNw.dAQJXhyEAB-4uxW-Qzvmd_OaTTQ'
+
+SYSPATH = r'F:\GitHub\PawSitive\extentions'
+LOGCHANNEL = '774266721321615370'
 
 ########################################################################
 ######################## C U S T O M I Z E #############################
 ########################################################################
 
-BOTNAME = 'FlauschePfote'
-ID = '773649469907664967'
 PREFIX = '#'
 
-
-#set at least one status to the command
 STATUS1 = '#help'
 STATUS2 = 'Stay PawSitive'
 STATUS3 = 'Doing Bot things'

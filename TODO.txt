@@ -1,0 +1,33 @@
+Functions:
+    Logger
+        -   server logger
+        -   client logger
+        -   cmd logger*
+        -   user logger
+
+    Status
+        -   background tasks in extention-loader
+
+add-ings:
+    ping
+        - permissions
+    
+    clear
+        - permissions
+    
+    extention-loader
+        - permissions
+
+    UserInfo
+        -   adding Custom Profile
+        -   adding PetSystemInfo to UserInfo
+        -   adding reaction to swap to PetSystemInfo
+    
+
+issues: 
+    clear
+        -   "beautify" function
+
+    status
+        -   Atribute error
+        -   NoneType Error
