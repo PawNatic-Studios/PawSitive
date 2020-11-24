@@ -37,9 +37,3 @@ add-ings:
         -   adding Custom Profile
         -   adding PetSystemInfo to UserInfo
         -   adding reaction to swap to PetSystemInfo
-    
-
-issues:
-    status
-        -   Atribute error
-        -   NoneType Error

@@ -24,6 +24,7 @@ class Userinfo(commands.Cog):
         roles = [role for role in member.roles]
 
         print(f'UserInfoCmd has been executed by {ctx.author} in channel #{ctx.channel}, about {member}')
+
         await ctx.channel.purge(limit=1)
 
         embed = discord.Embed(colour=discord.Colour.dark_purple(), timestamp=ctx.message.created_at)

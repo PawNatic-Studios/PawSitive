@@ -20,7 +20,7 @@ class Clear(commands.Cog):
     # Commands
     # clear + amount
     @commands.command(pass_context=True)
-    async def clear(self, ctx, args=None):
+    async def clear(self, ctx, number):
         print(f'Clear cmd has been executed by {ctx.author} in channel #{ctx.channel}')
 
         def mess_is_not_pinned(mess):
@@ -46,7 +46,6 @@ class Clear(commands.Cog):
                                       description=f'+clear ~**{args}** is not a number!',
                                       color=0x3A00FF)
                 await ctx.send(embed=embed, delete_after=10)
-
-
+                
 def setup(client):
     client.add_cog(Clear(client))

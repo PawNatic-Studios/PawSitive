@@ -22,3 +22,10 @@ PREFIX = '+'
 STATUS1 = '#help'
 STATUS2 = 'Doing bot things...'
 STATUS3 = 'Stay Fluffy!'
+
+PREFIX = '#'
+
+STATUS1 = '#help'
+STATUS2 = 'Stay PawSitive'
+STATUS3 = 'Doing Bot things'
+

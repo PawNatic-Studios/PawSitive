@@ -9,11 +9,17 @@ from discord.ext import commands, tasks
 from config import STATUS1
 from config import STATUS2
 from config import STATUS3
+
+
+import discord
+from discord.ext import commands
+
 from config import PREFIX
 from config import SYSPATH
 from config import TOKEN
 
 client = commands.Bot(command_prefix=PREFIX)
+
 status = cycle([STATUS1, STATUS2, STATUS3])
 
 #######################################################################
