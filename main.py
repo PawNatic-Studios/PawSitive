@@ -10,7 +10,6 @@ from config import STATUS1
 from config import STATUS2
 from config import STATUS3
 
-
 import discord
 from discord.ext import commands
 

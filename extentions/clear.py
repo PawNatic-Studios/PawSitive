@@ -20,7 +20,7 @@ class Clear(commands.Cog):
     # Commands
     # clear + amount
     @commands.command(pass_context=True)
-    async def clear(self, ctx, number):
+    async def clear(self, ctx, args=None):
         print(f'Clear cmd has been executed by {ctx.author} in channel #{ctx.channel}')
 
         def mess_is_not_pinned(mess):
@@ -37,7 +37,8 @@ class Clear(commands.Cog):
                 count = int(args) + 1
                 deleted = await ctx.channel.purge(limit=count, check=mess_is_not_pinned)
                 embed = discord.Embed(title='Moderation',
-                                      description='**{}** messages have been deleted in #'.format(len(deleted)-1) + f' {ctx.channel} by {ctx.author}',
+                                      description='**{}** messages have been deleted in #'.format(
+                                          len(deleted) - 1) + f' {ctx.channel} by {ctx.author}',
                                       color=0x3A00FF)
                 await ctx.send(embed=embed, delete_after=10)
             else:
@@ -46,6 +47,7 @@ class Clear(commands.Cog):
                                       description=f'+clear ~**{args}** is not a number!',
                                       color=0x3A00FF)
                 await ctx.send(embed=embed, delete_after=10)
-                
+
+
 def setup(client):
     client.add_cog(Clear(client))

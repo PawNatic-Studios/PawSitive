@@ -8,7 +8,7 @@
 ########################################################################
 
 VERSION = '0.0.010a'
-TOKEN = ''
+TOKEN = 'NzczNjQ5NDY5OTA3NjY0OTY3.X6MTNw.MbAxT-kVLrOEXPLPZVMhm-Banic'
 
 SYSPATH = r'F:\GitHub\PawSitive\extentions'
 LOGCHANNEL = '774266721321615370'
@@ -22,10 +22,3 @@ PREFIX = '+'
 STATUS1 = '#help'
 STATUS2 = 'Doing bot things...'
 STATUS3 = 'Stay Fluffy!'
-
-PREFIX = '#'
-
-STATUS1 = '#help'
-STATUS2 = 'Stay PawSitive'
-STATUS3 = 'Doing Bot things'
-
