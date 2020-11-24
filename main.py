@@ -1,22 +1,33 @@
 import os
+import random
+import asyncio
+from itertools import cycle
 
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 
+from config import STATUS1
+from config import STATUS2
+from config import STATUS3
 from config import PREFIX
 from config import SYSPATH
 from config import TOKEN
 
 client = commands.Bot(command_prefix=PREFIX)
+status = cycle([STATUS1, STATUS2, STATUS3])
 
 #######################################################################
 ######################## M A I N  L O A D E R #########################
 #######################################################################
 
 @client.event
-async def on_connect():
-    print('\r\n' + client.user.display_name + ' has been connected...\r\n')
+async def on_ready():
+    print('\r\n' + client.user.display_name + ' has been established...\r\n')
+    change_status.start()
 
+@tasks.loop(seconds=10)
+async def change_status():
+    await client.change_presence(activity=discord.Game(next(status)), status=discord.Status.online)
 
 #######################################################################
 ##########################Extention loader#############################
@@ -24,7 +35,7 @@ async def on_connect():
 
 # Extention loader
 @client.command()
-async def load(extention):
+async def load(ctx, extention):
     client.load_extension(f'extentions.{extention}')
     await ctx.channel.purge(limit=1)
     print('Extention_loader: loaded extention ' + extention)
@@ -35,7 +46,7 @@ async def load(extention):
 
 # Extention unloader
 @client.command()
-async def unload(extention):
+async def unload(ctx, extention):
     client.unload_extension(f'extentions.{extention}')
     await ctx.channel.purge(limit=1)
     print('Extention_loader: unloaded extention ' + extention)

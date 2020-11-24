@@ -5,8 +5,23 @@ Functions:
         -   cmd logger*
         -   user logger
 
-    Status
-        -   background tasks in extention-loader
+    hunting game?
+        -   collect items on the server by ....
+        -   sushi
+        -   trauben
+
+    Profile/Moderation
+
+        -   Get role by reacting to #role channel - message
+        -   Kick, Ban funtion/shrt cmd for moderator and above
+        -   
+        -
+        -
+
+    Twitch
+        -
+        -
+        -
 
 add-ings:
     ping
@@ -24,10 +39,7 @@ add-ings:
         -   adding reaction to swap to PetSystemInfo
     
 
-issues: 
-    clear
-        -   "beautify" function
-
+issues:
     status
         -   Atribute error
         -   NoneType Error
