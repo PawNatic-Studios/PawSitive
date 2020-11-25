@@ -11,6 +11,7 @@ VERSION = '0.0.010a'
 TOKEN = ''
 
 SYSPATH = r'F:\GitHub\PawSitive\extentions'
+SERVER_ID = '761262307502063636'
 LOGCHANNEL = '774266721321615370'
 
 ########################################################################
@@ -22,3 +23,20 @@ PREFIX = '+'
 STATUS1 = '#help'
 STATUS2 = 'Doing bot things...'
 STATUS3 = 'Stay Fluffy!'
+
+#Userinfo
+# while changing value, reload extention
+info_reaction1 = ':Paw:775703938275606580'
+info_reaction2 = '📄'
+info_reaction3 = ':Love:775703938761621555'
+
+user_love_title = '**Lieeebe**'
+user_love_description = 'gefällt dein Profil!'
+
+#Petinfo
+pet_reaction1 = ':Grapes:775703938611544064'
+pet_reaction2 = ':Paw:775703938275606580'
+pet_reaction3 = '👋'
+pet_reaction4 = '🏹'
+pet_reaction5 = '⚔'
+pet_reaction6 = ':Comfy:775703720020279296'

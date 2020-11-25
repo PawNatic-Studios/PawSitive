@@ -14,8 +14,8 @@ Functions:
 
         -   Get role by reacting to #role channel - message
         -   Kick, Ban funtion/shrt cmd for moderator and above
-        -   
-        -
+        -   Setup ur custom profile page - using reaction + dms
+        -   Display pet
         -
 
     Twitch
@@ -24,9 +24,6 @@ Functions:
         -
 
 add-ings:
-    ping
-        - permissions
-    
     clear
         - permissions
     
@@ -36,4 +33,8 @@ add-ings:
     UserInfo
         -   adding Custom Profile
         -   adding PetSystemInfo to UserInfo
-        -   adding reaction to swap to PetSystemInfo
+        -   adding reaction to get dm-msg about #user from userinfo-pannel to PetSystemInfo
+
+issues:
+    reaction:
+        -   does not react on custom emojis!

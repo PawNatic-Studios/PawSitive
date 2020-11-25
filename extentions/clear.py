@@ -38,7 +38,7 @@ class Clear(commands.Cog):
                 deleted = await ctx.channel.purge(limit=count, check=mess_is_not_pinned)
                 embed = discord.Embed(title='Moderation',
                                       description='**{}** messages have been deleted in #'.format(
-                                          len(deleted) - 1) + f' {ctx.channel} by {ctx.author}',
+                                          len(deleted) - 1) + f'{ctx.channel} by {ctx.author}',
                                       color=0x3A00FF)
                 await ctx.send(embed=embed, delete_after=10)
             else:

@@ -1,11 +1,14 @@
 import discord
 from discord.ext import commands
 
+import os
 import time
+import asyncio
+
+import config
 
 Classname = 'Userinfo'
 EL = 'Extention_Loader: {} has been loaded'.format(Classname)
-
 
 class Userinfo(commands.Cog):
 
@@ -41,8 +44,11 @@ class Userinfo(commands.Cog):
 
         embed.add_field(name=f'Role/s:({len(roles)})', value=' '.join([role.mention for role in roles]))
 
-        await ctx.send(embed=embed, delete_after=60)
+        message = await ctx.send(embed=embed, delete_after=60)
 
+        await message.add_reaction(config.info_reaction1)
+        await message.add_reaction(config.info_reaction2)
+        await message.add_reaction(config.info_reaction3)
 
 def setup(client):
     client.add_cog(Userinfo(client))

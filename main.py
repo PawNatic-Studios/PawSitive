@@ -77,6 +77,7 @@ async def reload(ctx, extention):
     embed = discord.Embed(title='Extention Loader',
                           description='successesfully reloaded extention: {}'.format(extention),
                           color=0x3A00FF)
+
     await ctx.send(embed=embed, delete_after=10)
 
 # End of Extentions
