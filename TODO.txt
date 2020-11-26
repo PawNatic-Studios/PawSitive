@@ -36,5 +36,4 @@ add-ings:
         -   adding reaction to get dm-msg about #user from userinfo-pannel to PetSystemInfo
 
 issues:
-    reaction:
-        -   does not react on custom emojis!
+    x:
